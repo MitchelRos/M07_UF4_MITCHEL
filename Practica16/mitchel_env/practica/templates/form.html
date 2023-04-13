@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+     <meta charset="UTF-8">
+     <title>Formulario</title>
+     <style>
+          body {
+               align-items: center;
+               background-color: #000;
+               display: flex;
+               justify-content: center;
+               flex-direction: column;
+               height: 100vh;
+          }
+
+          a{
+               font-family: 'Comic Sans ms',sans-serif;
+               display: block;
+               padding: 10px;
+               background-color: beige;
+          }
+
+          .form {
+               background-color: #15172b;
+               border-radius: 20px;
+               box-sizing: border-box;
+               height: 500px;
+               padding: 10px 50px;
+               width: 520px;
+          }
+
+          .title {
+               color: #eee;
+               font-family: sans-serif;
+               font-size: 36px;
+               font-weight: 600;
+               margin-top: 30px;
+          }
+
+          .subtitle {
+               color: #eee;
+               font-family: sans-serif;
+               font-size: 16px;
+               font-weight: 600;
+               margin-top: 10px;
+          }
+
+          .containput {
+               height: 50px;
+               position: relative;
+               width: 100%;
+          }
+
+          .ci1 {
+               margin-top: 40px;
+          }
+
+          .ci2 {
+               margin-top: 30px;
+          }
+
+          .input {
+               background-color: #303245;
+               border-radius: 12px;
+               border: 0;
+               box-sizing: border-box;
+               color: #eee;
+               font-size: 18px;
+               height: 100%;
+               outline: 0;
+               padding: 4px 20px 0;
+               width: 100%;
+          }
+
+          .mini {
+               background-color: #15172b;
+               border-radius: 10px;
+               height: 20px;
+               left: 20px;
+               position: absolute;
+               top: -20px;
+               transform: translateY(0);
+               transition: transform 200ms;
+               width: 76px;
+          }
+
+          .mini-inp {
+               width: 50px;
+          }
+
+          .input:focus~.mini,
+          .input:not(:placeholder-shown)~.mini {
+               transform: translateY(8px);
+          }
+
+          .placeholder {
+               color: #65657b;
+               font-family: sans-serif;
+               left: 20px;
+               line-height: 14px;
+               pointer-events: none;
+               position: absolute;
+               transform-origin: 0 50%;
+               transition: transform 200ms, color 200ms;
+               top: 20px;
+          }
+
+          .input:focus~.placeholder,
+          .input:not(:placeholder-shown)~.placeholder {
+               transform: translateY(-30px) translateX(10px) scale(0.75);
+          }
+
+          .input:not(:placeholder-shown)~.placeholder {
+               color: #808097;
+          }
+
+          .input:focus~.placeholder {
+               color: #dc2f55;
+          }
+
+          /* animacion del boton */
+          .submit {
+               position: relative;
+               display: inline-block;
+               background-color: #08d;
+               border-radius: 5px;
+               border: 0;
+               box-sizing: border-box;
+               cursor: pointer;
+               font-size: 18px;
+               height: 50px;
+               /* outline: 0; */
+               text-align: center;
+               width: 100%;
+               padding: 10px 20px;
+               /* ---------------- */
+               color: #03e9f4;
+               text-decoration: none;
+               text-transform: uppercase;
+               overflow: hidden;
+               transition: .5s;
+               margin-top: 50px;
+               letter-spacing: 4px
+          }
+
+          .submit:active {
+               background-color: #06b;
+          }
+
+
+          /* ------------------- */
+          .form button:hover {
+               background: #03e9f4;
+               color: #000;
+               font-weight: bolder;
+               border-radius: 5px;
+               box-shadow: 0 0 5px #03e9f4,
+                    0 0 15px #03e9f4,
+                    0 0 25px #03e9f4,
+                    0 0 50px #03e9f4;
+          }
+
+          .form button span {
+               position: absolute;
+               display: block;
+          }
+
+          .form button span:nth-child(1) {
+               top: 0;
+               left: -100%;
+               width: 100%;
+               height: 2px;
+               background: linear-gradient(90deg, transparent, #03e9f4);
+               animation: btn-anim1 1s linear infinite;
+          }
+
+          @keyframes btn-anim1 {
+               0% {
+                    left: -100%;
+               }
+
+               50%,
+               100% {
+                    left: 100%;
+               }
+          }
+
+          .form button span:nth-child(2) {
+               top: -100%;
+               right: 0;
+               width: 2px;
+               height: 100%;
+               background: linear-gradient(180deg, transparent, #03e9f4);
+               animation: btn-anim2 1s linear infinite;
+               animation-delay: .25s
+          }
+
+          @keyframes btn-anim2 {
+               0% {
+                    top: -100%;
+               }
+
+               50%,
+               100% {
+                    top: 100%;
+               }
+          }
+
+          .form button span:nth-child(3) {
+               bottom: 0;
+               right: -100%;
+               width: 100%;
+               height: 2px;
+               background: linear-gradient(270deg, transparent, #03e9f4);
+               animation: btn-anim3 1s linear infinite;
+               animation-delay: .5s
+          }
+
+          @keyframes btn-anim3 {
+               0% {
+                    right: -100%;
+               }
+
+               50%,
+               100% {
+                    right: 100%;
+               }
+          }
+
+          .form button span:nth-child(4) {
+               bottom: -100%;
+               left: 0;
+               width: 2px;
+               height: 100%;
+               background: linear-gradient(360deg, transparent, #03e9f4);
+               animation: btn-anim4 1s linear infinite;
+               animation-delay: .75s
+          }
+
+          @keyframes btn-anim4 {
+               0% {
+                    bottom: -100%;
+               }
+
+               50%,
+               100% {
+                    bottom: 100%;
+               }
+          }
+     </style>
+</head>
+
+<body>
+     <a href="http://127.0.0.1:8000/">Home</a>
+     <div class="form">
+          <div class="title">Formulario</div>
+          <div class="subtitle">Haz un gestion!!! </div>
+          <div class="containput ci1">
+               <input id="firstname" class="input" type="text" placeholder=" " />
+               <div class="mini"></div>
+               <label for="firstname" class="placeholder">Nombre</label>
+          </div>
+          <div class="containput ci2">
+               <input id="lastname" class="input" type="text" placeholder=" " />
+               <div class="mini"></div>
+               <label for="lastname" class="placeholder">Apellido</label>
+          </div>
+          <div class="containput ci2">
+               <input id="age" class="input" type="text" placeholder=" " />
+               <div class="mini mini-inp"></div>
+               <label for="age" class="placeholder">Edad</label>
+          </div>
+          <button type="text" class="submit">
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               submit
+          </button>
+     </div>
+</body>
+
+</html>

@@ -4,5 +4,9 @@ from django.template import loader
 
 # Create your views here.
 def index(request):
-     template = loader.get_template('index.html')
+     template = loader.get_template('index.html') 
+     return HttpResponse(template.render())
+     
+def form(request):
+     template = loader.get_template('form.html') 
      return HttpResponse(template.render())
