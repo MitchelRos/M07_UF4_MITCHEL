@@ -12,7 +12,7 @@ def form(request):
      return HttpResponse(template.render())
 
 # Create
-def user_form(request):
+def create_user(request):
      form = PersonForm()
 
      if request.method == 'POST':
@@ -23,6 +23,15 @@ def user_form(request):
           
      context ={'form':form}
      return render(request, 'form.html', context)
+
+# Read
+def read_user(request):
+     person = Person.objects.all
+     # form = PersonForm(instance=person)
+     
+     context ={'persons':person}
+     return render(request, 'form.html', context)
+
 
 # Update
 def update_user(request, pk):
