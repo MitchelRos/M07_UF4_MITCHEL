@@ -1,0 +1,8 @@
+{% for person in person %}
+<tr>
+    <td> {{ person.first_Name}} </td>
+    <td> {{ person.lastNme}} </td>
+    <td> {{ person.age}} </td>
+    <td> <a href="{% url 'update-user' person.id %}">EDIT</a> </td>
+    {% endfor %}
+</tr>
